@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VULN-TRACKER - Website Vulnerability Scanner</title>
+  <meta name="description" content="A tool to scan websites for vulnerabilities, created by VIT Students">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <div class="header-logo">
+          <i data-lucide="shield" class="header-icon"></i>
+          <div>
+            <h1 class="header-title">VULN-TRACKER</h1>
+            <p class="header-subtitle">A tool to scan websites for vulnerabilities</p>
+          </div>
+        </div>
+        <div class="header-info">
+          <p>Made by: VIT Students (Software)</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main container">
+      <!-- URL Input Form -->
+      <div class="card mb-8">
+        <h2 class="card-title">Enter Website URL to Scan</h2>
+        <form id="scan-form" class="scan-form">
+          <div class="input-container">
+            <div class="input-icon-wrapper">
+              <i data-lucide="globe" class="input-icon"></i>
+            </div>
+            <input
+              type="text"
+              id="url-input"
+              placeholder="example.com or https://example.com"
+              class="url-input"
+            >
+            <p id="error-message" class="error-message"></p>
+          </div>
+          <button
+            type="submit"
+            id="scan-button"
+            class="scan-button"
+          >
+            <i data-lucide="search" class="button-icon"></i>
+            <span>Scan Website</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Loading Section -->
+      <div id="loading-section" class="card mb-8 hidden">
+        <div class="loading-container">
+          <div id="loading-spinner"></div>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div id="results-section" class="results-container hidden">
+        <!-- Scan Summary -->
+        <div class="card mb-8">
+          <h2 class="card-title">Scan Summary</h2>
+          <div class="summary-grid">
+            <div class="summary-item summary-item-blue">
+              <p class="summary-label">Scan Duration</p>
+              <p id="scan-duration" class="summary-value">0s</p>
+            </div>
+            <div class="summary-item summary-item-indigo">
+              <p class="summary-label">URLs Discovered</p>
+              <p id="urls-count" class="summary-value">0</p>
+            </div>
+            <div id="vulnerabilities-summary" class="summary-item summary-item-green">
+              <p id="vulnerabilities-label" class="summary-label">Vulnerabilities Found</p>
+              <p id="vulnerabilities-count" class="summary-value">0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Discovered URLs -->
+        <div class="card mb-8">
+          <h2 id="discovered-urls-title" class="card-title">Discovered URLs (0)</h2>
+          <div class="table-container">
+            <table class="url-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>URL</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="urls-table-body">
+                <!-- URLs will be inserted here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Vulnerabilities -->
+        <div class="card mb-8">
+          <h2 class="card-title">Vulnerabilities Found</h2>
+          <div id="vulnerabilities-container">
+            <!-- Vulnerabilities will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-info">
+          <p class="footer-title">VULN-TRACKER</p>
+          <p class="footer-subtitle">A tool to scan websites for vulnerabilities</p>
+        </div>
+        <div class="footer-author">
+          <p class="footer-author-name">Group-3</p>
+          <p class="footer-author-title">FY (Software Engineer) | Cyber Security Enthusiast | VIT Student</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Load Lucide.js from CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="scanner.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
